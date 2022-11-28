@@ -68,7 +68,15 @@ void dealloc(Node* head)
 //   Add any helper functions or
 //   function object struct declarations
 // -----------------------------------------------
-
+struct isEven(){
+	bool operator(int val){
+		//compare the vals 
+		if (val%2 == 1){
+			return false;
+		}
+		return true;
+	}
+}
 
 
 
@@ -94,6 +102,7 @@ int main(int argc, char* argv[])
 		print(smaller);
 		print(larger);
 	  
+		isEven
     //llfilter(head,pred);
 		//print(head);
 
