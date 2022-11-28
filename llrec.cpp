@@ -38,28 +38,28 @@
  *   Pivot value
  *
  */
-void llpivotHelper(Node *&head, Node *&smaller, Node *&larger, int pivot){
-	if (head->val <= pivot){
-		//create a new node 
-		//Node* temp = new Node(head->val);
-		//smaller = temp;
-		smaller = head;
-		llpivot(head->next, smaller->next, larger,pivot);
-			//smaller->next;
-	}
-	else{
-		larger = head; 
-		llpivot(head->next, smaller, larger->next,pivot);
-	}
-}
+
 void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
 
 	if (head == NULL){
-		smaller = nullptr;
-		larger = nullptr; 
+		smaller = NULL;
+		larger = NULL; 
 		return;
 	}
-	llpivotHelper(head, smaller, larger, pivot);
+	llpivot(head->next, smaller, larger, pivot);
+
+	if (head->val <= pivot){ 
+		head->next = smaller; 
+		smaller = head;
+		
+	}
+	else{
+		head->next = larger;
+		larger = head; 
+		
+	}
+	head = NULL; 
+
 }
 
 
